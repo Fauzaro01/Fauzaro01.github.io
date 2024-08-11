@@ -1,6 +1,309 @@
 <!DOCTYPE html>
 <html lang="en">
-<meta charset="UTF-8">
-<meta http-equiv="refresh" content="0; URL=https://fauzaro01.web.app">
-<link rel="canonical" href="https://fauzaro01.web.app">
-<title>Let's GO</title>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Card</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+    * {
+      font-family: "Poppins", sans-serif;
+    }
+
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: #f7f7f7;
+    }
+
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    .card-layer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.7);
+      z-index: 2;
+    }
+
+    .birthday-card {
+      position: relative;
+      z-index: 3;
+      opacity: 0;
+      transform: scale(0.9);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+
+    }
+
+    .birthday-card.show {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .typing-text {
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid transparent; /* Removed the blinking effect */
+      animation: typing 3s steps(40, end), blink 0.75s step-end infinite;
+    }
+
+    @keyframes typing {
+      from {
+        width: 0;
+      }
+      to {
+        width: 100%;
+      }
+    }
+
+    @keyframes blink {
+      from {
+        border-color: transparent;
+      }
+      to {
+        border-color: black;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="particles-js"></div>
+  <div class="card-layer">
+    <h2></h2>
+  </div>
+
+  <div class="d-flex justify-content-center align-items-center" style="height: 100vh; z-index: 3;">
+    <div id="welcome" class="card birthday-card shadow-lg show" style="width: 30rem; background-color: #fff;">
+      <div class="card-body text-center">
+        <h3 class="card-title">🎉 Happy Birthday Aisyah! 🎉</h3>
+        <div id="counter" style="display: none;">
+          <span>Sabar ya cantik 😎</span>
+          <div>
+            <span id="hour"></span> Jam
+            <span id="minute"></span> Menit
+            <span id="second"></span> Detik Lagi
+          </div>
+        </div>
+
+        <p class="card-text">Kartu Ucapan Khusus dari Abung!</p>
+        <div class="d-flex justify-content-center">
+          <button id="celebrate" style="display: none;" class="btn btn-primary">Click untuk Rayakan!</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="card-container" style="display:none;">
+      <!-- First Card -->
+      <div class="card birthday-card shadow-lg show" style="width: 25rem; background-color: #fff;">
+        <div class="card-body text-center">
+          <h2 class="card-title">Happy Birthday Sayangku ✨✨🌷🌷</h2>
+          <p class="card-text typing-text">Semoga dengan bertambahnya umur amungku, semakin percaya diri dan semakin cantik, rajin ibadahnya, selalu di berikan kesehatan sama allah, perpanjang umurnya, selalu bahagia, serta segala doa dan cita cita yang kamu inginkan bisa terwujud juga di permudahkan dalam segala urusannya. Aminnn ✨🤲🏻</p>
+          <button class="btn btn-success next-btn" disabled>Next</button>
+        </div>
+      </div>
+    
+      <!-- Second Card -->
+      <div class="card birthday-card shadow-lg" style="width: 25rem; background-color: #fff; display:none;">
+        <div class="card-body text-center">
+          <h2 class="card-title">Hai cantiku, Kamu tau ngga kira kira sekarang hari apa? 👀</h2>
+          <p class="card-text typing-text">Senin? Ehhh.. bukan 😌 sekarang itu tanggal (12 Agustus 2024) hari kelahiran seorang perempuan hebat bernama Aisyah, kamu yang setia menemani sampai titik ini, juga bisa melewati berbagai rintangan dan masalah masalah di hidupnya dan yang baik hati sekali 💘</p>
+          <button class="btn btn-success next-btn" disabled>Next</button>
+        </div>
+      </div>
+
+      <div class="card birthday-card shadow-lg" style="width: 25rem; background-color: #fff; display:none;">
+        <div class="card-body text-center">
+          <h2 class="card-title">Sabar sebentar ya nungguin effect ketikan nya 😭</h2>
+          <p class="card-text typing-text">Maaf ya sayangku, aku ngga kaya cowo cowo lain yang mungkin effort nya bisa lebih besar, aku juga ngga bisa se Wuah kaya di tiktok karena aku ngga ada encis, terlebih ekonomi aku lagi pas pasan, walaupun bermodalkan kata kata di website ini.. dan sebenernya website yang kamu lihat saat ini itu udah di buat jauh dari hari ke hari sampai saat ini kamu lihat. </p>
+          <button class="btn btn-success next-btn" disabled>Next</button>
+        </div>
+      </div>
+
+      <div class="card birthday-card shadow-lg" style="width: 25rem; background-color: #fff; display:none;">
+        <div class="card-body text-center">
+          <h2 class="card-title">💘💖</h2>
+          <p class="card-text typing-text">Semangat ya sayangku, terus kejar keinginan kamu, terus kejar impian kamu, aku akan selalu dukung kamu, kamu pasti bisa sayangku, jangan pernah takut gagal atau di katawain orang lain, aku ada selalu buat kamu, selalu dukung kamu sayang, jangan cape ya sayangku! semangat terus aku ada di samping kamu, selalu jadi kesayangannya aku, jadi anak tergemess ya pipi sayang, selalu kuat sayang sama keluarga, jangan lupa bersyukur apa yang kamu udah dapetin juga, semoga apapun yang kamu lakukan dari hari ke hari berikutnya selalu di berikan kelancaran dan keselamatan. Aminn 💖💖💌💌</p>
+          <button class="btn btn-success next-btn" disabled>Next</button>
+        </div>
+      </div>
+
+      <!-- Add more cards as needed -->
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+  <script>
+    const celebrateBtn = document.getElementById('celebrate');
+    const welcomeCard = document.getElementById('welcome');
+    const cardContainer = document.getElementById('card-container');
+    const cards = cardContainer.getElementsByClassName('birthday-card');
+    const nextBtns = document.getElementsByClassName('next-btn');
+
+    celebrateBtn.addEventListener("click", () => {
+      welcomeCard.style.display = 'none';
+      cardContainer.style.display = 'block';
+      showCard(cards[0], () => enableNextButton(cards[0]));
+    });
+
+    Array.from(nextBtns).forEach((btn, index) => {
+      btn.addEventListener("click", () => {
+        cards[index].style.display = 'none';
+        if (cards[index + 1]) {
+          showCard(cards[index + 1], () => enableNextButton(cards[index + 1]));
+        }
+      });
+    });
+
+    function showCard(card, callback) {
+      card.style.display = 'block';
+      setTimeout(() => {
+        card.classList.add('show');
+        typeText(card, callback);
+      }, 10);
+    }
+
+    function typeText(card, callback) {
+  const typingElements = card.querySelectorAll('.typing-text');
+  
+  typingElements.forEach(element => {
+    const text = element.textContent; // Get the full text
+    element.textContent = ''; // Clear the element's content
+    
+    let i = 0;
+    const speed = 50; // Speed of typing effect in milliseconds per character
+    
+    function typeWriter() {
+      if (i < text.length) {
+        element.textContent += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+      } else {
+        if (callback) callback(); // Call the callback when done
+      }
+    }
+    
+    typeWriter();
+  });
+}
+
+
+
+    function enableNextButton(card) {
+      const nextBtn = card.querySelector('.next-btn');
+      nextBtn.disabled = false;
+    }
+
+    const second = 1000,
+      minute = second * 60,
+      hour = minute * 60,
+      day = hour * 24;
+
+    let countDown = new Date(`Aug 11 2024 10:30:00`).getTime();
+    const x = setInterval(function () {
+      let now = new Date().getTime(),
+        distance = countDown - now;
+
+      const counterdiv = document.getElementById('counter');
+      if (distance < 0) {
+        celebrateBtn.style.display = "block";
+        counterdiv.style.display = "none"; // Hide the counter
+      } else {
+        celebrateBtn.style.display = "none";
+        counterdiv.style.display = "block"; // Hide the counter
+      }
+
+      document.getElementById('hour').innerText = Math.floor(
+        (distance % day) / hour
+      );
+      document.getElementById('minute').innerText = Math.floor(
+        (distance % hour) / minute
+      );
+      document.getElementById('second').innerText = Math.floor(
+        (distance % minute) / second
+      );
+    }, second);
+
+    particlesJS("particles-js", {
+      "particles": {
+        "number": {
+          "value": 40,
+          "density": {
+            "enable": true,
+            "value_area": 800
+          }
+        },
+        "shape": {
+          "type": "image",
+          "image": {
+            "src": "https://w7.pngwing.com/pngs/337/920/png-transparent-red-heart-illustration-red-curry-heart-heart-no-background-love-logo-red-thumbnail.png",
+            "width": 100,
+            "height": 100
+          }
+        },
+        "opacity": {
+          "value": 0.8,
+          "random": true,
+          "anim": {
+            "enable": true,
+            "speed": 0.5,
+            "opacity_min": 0.3,
+            "sync": false
+          }
+        },
+        "size": {
+          "value": 20,
+          "random": true,
+          "anim": {
+            "enable": true,
+            "speed": 2,
+            "size_min": 10,
+            "sync": false
+          }
+        },
+        "move": {
+          "enable": true,
+          "speed": 6,
+          "direction": "bottom",
+          "random": false,
+          "straight": false,
+          "out_mode": "out",
+          "bounce": false
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": {
+            "enable": false,
+            "mode": "grab"
+          },
+          "onclick": {
+            "enable": false,
+            "mode": "push"
+          },
+          "resize": true
+        }
+      },
+      "retina_detect": true
+    });
+  </script>
+
+</body>
+
+</html>
